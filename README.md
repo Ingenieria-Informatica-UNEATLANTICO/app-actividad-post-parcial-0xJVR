@@ -40,7 +40,7 @@ El diagrama de estados muestra los flujos de trabajo principales del sistema, co
 ### Modelo del Dominio Original
 
 | Diagrama | Imagen |
-|----------|--------|
+|:--------:|:------:|
 | **Diagrama de Clases** | ![Modelo de Clases Original](./images/Original/ModeloClases.svg) |
 | **Diagrama de Objetos** | ![Modelo de Objetos Original](./images/Original/ModeloObjetos.svg) |
 | **Diagrama de Estados** | ![Modelo de Estados Original](./images/Original/ModeloEstados.svg) |
@@ -48,7 +48,7 @@ El diagrama de estados muestra los flujos de trabajo principales del sistema, co
 ### Modelo del Dominio Iterado
 
 | Diagrama | Imagen |
-|----------|--------|
+|:--------:|:------:|
 | **Diagrama de Clases:** | ![Modelo de Clases Iterado](./images/Iterado/ModeloClases.svg)
 | **Diagrama de Objetos:** | ![Modelo de Objetos Iterado](./images/Iterado/ModeloObjetos.svg)
 | **Diagrama de Estados:** | ![Modelo de Estados Iterado](./images/Iterado/ModeloEstados.svg)
