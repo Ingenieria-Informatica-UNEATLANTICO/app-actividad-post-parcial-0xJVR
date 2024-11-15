@@ -32,7 +32,7 @@ El diagrama de estados muestra los flujos de trabajo principales del sistema, co
 ### Diagrama de Estados
 #### Mejoras realizadas:
 - Separación en módulos claros: `RepositoryManagement`, `IssueTracking`, y `PullRequestWorkflow`.
-- Añadidas nuevas transiciones y métodos (`createRepo()`, `forkRepo()`, `createPullRequest()`).
+- Añadidas nuevas transiciones (`createRepo`, `forkRepo`, `createPullRequest`).
 - Mejora en la organización y claridad del flujo de trabajo.
 
 ## Imágenes de los Diagramas
