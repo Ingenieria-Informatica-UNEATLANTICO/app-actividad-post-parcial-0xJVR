@@ -1,0 +1,31 @@
+@startuml
+
+object owner
+object repo
+object issue
+object branch
+object version
+object commit
+object archivo
+
+owner : name = "mmasias"
+repo : name = "24-25-IdS"
+issue : titulo = "clase"
+issue : descripcion = "Mañana no hay clase"
+branch : name = "main"
+version : name = "Upstream"
+commit : autor = "mmasias"
+commit : titulo = "Update Readme"
+commit : fecha = "2024-09-09"
+archivo : name = "Readme.md"
+
+owner --> repo
+repo <--> branch
+repo --> issue
+branch --> version
+branch --> commit
+commit --> archivo
+
+version ..> commit
+
+@enduml
