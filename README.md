@@ -1,53 +1,54 @@
-# Repo plantilla para exámenes [PRG*x*|EDA*x*|IDSW*x*]@gII.uneatlantico
 
-*Este documento es una guía para la realización y entrega de las evaluaciones en las asignaturas PRGx, EDAx e IDSWx del Grado en Ingeniería Informática. Detalla la estructura del repositorio de entrega, los artefactos requeridos y los criterios de evaluación.*
+# Modelo del Dominio - Servidor de versionado de codigo (GitHub)
 
-## Enunciado del examen
+[Examen Parcial](documents/IdS-Parcial.pdf)
 
-En el repo de la asignatura, carpeta `/evaluaciones`, apartado del examen correspondiente.
+## Modelo del Dominio Original
 
-### Retos
+### Diagrama de Clases
+En este diagrama se presentan las clases base del sistema, incluyendo `Usuario`, `Repo`, `Fork`, `Issue`, `Branch`, `Commit`, y `File`. Las relaciones entre estas clases reflejan la estructura básica de un sistema de control de versiones.
 
-Indicados dentro del enunciado del examen.
+### Diagrama de Objetos
+Este diagrama muestra ejemplos concretos de instancias de los objetos definidos en el diagrama de clases, incluyendo un ejemplo de usuario (`owner`), repositorio (`repo`), y un archivo (`archivo`).
 
-## Entrega del examen
+### Diagrama de Estados
+El diagrama de estados muestra los flujos de trabajo principales del sistema, como la creación de un repositorio, push de cambios por un colaborador, y creación de forks y pull requests.
 
-En el repositorio destinado para tal fin en el examen.
+## Modelo del Dominio Iterado
 
-### Artefactos
+### Diagrama de Clases
+#### Mejoras realizadas:
+- Se añadieron atributos a las clases (`username`, `email`, `permissions`), proporcionando mayor detalle.
+- La clase `Fork` ahora hereda de `Repo`, indicando una especialización de repositorios.
+- Nuevas relaciones entre clases (`Commit` ahora modifica `File`).
+- Mejora en la descripción de atributos y métodos, haciendo el modelo más descriptivo.
 
-A continuación una lista de artefactos que habitualmente constituyen la entrega de un examen:
+### Diagrama de Objetos
+#### Mejoras realizadas:
+- Se añadieron nuevos objetos y atributos como `email` y `permissions` para usuarios.
+- Mejora en la estructuración y ejemplos más detallados de datos.
+- Relaciones adicionales como `PullRequest` vinculada a una rama específica (`masterBranch`).
 
-||||
-|-|-|-|
-|1|Archivo **README.md**|**Este archivo**, sobreescrito con su presentación de la propuesta de solución al examen.|
-|2|Código fuente|Proyecto ordenado dentro de la carpeta `/src`.|
-|3|Diagramas UML|Archivos fuente en la carpeta `/modelosUML`.|
-| ||Diagramas exportados en formato .svg en la carpeta `/images`. |
-|4|Imágenes|Si considera necesario incluir imágenes además de los diagramas, deben alojarse en la carpeta `/images` y estar referenciadas en el documento de entrega.|
-| ||Para diagramas use el formato .svg y para imágenes comunes, el formato .png.|
-|5|Documentación adicional|En la carpeta `/documents`.|
+### Diagrama de Estados
+#### Mejoras realizadas:
+- Separación en módulos claros: `RepositoryManagement`, `IssueTracking`, y `PullRequestWorkflow`.
+- Añadidas nuevas transiciones (`createRepo`, `forkRepo`, `createPullRequest`).
+- Mejora en la organización y claridad del flujo de trabajo.
 
-### Qué se debe entregar
+## Imágenes de los Diagramas
 
-- Los artefactos a entregar se indican en el examen de modo específico. Se especificará cuales son obligatorios.
-- Usted tiene la libertad de decidir si incluir o no los elementos que no sean explícitamente requeridos en el enunciado del examen. Su inclusión es facultativa y debe basarse en su criterio sobre la relevancia o aporte que estos elementos puedan tener para el trabajo presentado.
-- Todos los artefactos han de quedar adecuadamente relacionados desde el artefacto 1.
+### Modelo del Dominio Original
 
-## Se valorará
+| Diagrama | Imagen |
+|:--------:|:------:|
+| **Diagrama de Clases** | ![Modelo de Clases Original](./images/Original/ModeloClases.svg) |
+| **Diagrama de Objetos** | ![Modelo de Objetos Original](./images/Original/ModeloObjetos.svg) |
+| **Diagrama de Estados** | ![Modelo de Estados Original](./images/Original/ModeloEstados.svg) |
 
-- Proceso de creación.
-- Exactitud en la solución.
-- Adecuado reparto de responsabilidades.
-- Código limpio.
-- Claridad del código.
-- Gestión de estados.
-- Y, por supuesto, el uso de los temas vistos en clase.
+### Modelo del Dominio Iterado
 
-### Se propone/sugiere
-
-|||
-|-|-|
-|Planificación| Planifique su enfoque utilizando diagramas, esquemas, estados y/o pseudocódigo. Lo puede aportar en su repo, como diagrama o como imagen (foto), en la carpeta adecuada y enlazado desde el README.md|
-|Documentación|En dicho README.md puede explicar cómo cada parte contribuye a la solución general. Y como hemos debatido ampliamente, evite los comentarios a su código: ¡que el código se autoexplique!.|
-|Delegación de responsabilidades|Dedíquele un momento a reflexionar sobre cómo reparte las responsabilidades entre los diferentes artefactos y cómo esto afecta la claridad y eficiencia de su solución.|
+| Diagrama | Imagen |
+|:--------:|:------:|
+| **Diagrama de Clases:** | ![Modelo de Clases Iterado](./images/Iterado/ModeloClases.svg)
+| **Diagrama de Objetos:** | ![Modelo de Objetos Iterado](./images/Iterado/ModeloObjetos.svg)
+| **Diagrama de Estados:** | ![Modelo de Estados Iterado](./images/Iterado/ModeloEstados.svg)

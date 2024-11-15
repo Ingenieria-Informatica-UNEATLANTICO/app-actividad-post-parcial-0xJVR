@@ -1,0 +1,36 @@
+@startuml
+
+class Usuario
+class Colaborador
+class Owner
+class Repo {
+}
+class Fork
+class Issue {
+  +titulo
+  +descripcion
+}
+class Branch
+class PullRequest
+class Version
+class Commits {
+  +autor
+  +titulo
+  +fecha
+}
+class Archivos
+
+Usuario <|-- Owner
+Usuario <|-- Colaborador
+Owner --> Repo
+Repo <--> Branch
+Repo --> Fork
+Repo --> Issue
+Branch --> PullRequest
+Branch --> Version
+Branch "1" --> "0..*" Commits
+Commits --> Archivos
+Fork .. PullRequest
+Version .. Commits
+
+@enduml

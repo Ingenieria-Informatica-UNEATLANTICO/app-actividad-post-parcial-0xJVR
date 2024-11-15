@@ -1,0 +1,27 @@
+@startuml
+
+state RepositoryManagement {
+    [*] --> ViewingRepos
+    ViewingRepos --> CreatingRepo : createRepo
+    CreatingRepo --> ViewingRepos : repoCreated
+    ViewingRepos --> ForkingRepo : forkRepo
+    ForkingRepo --> ViewingRepos : forkCreated
+}
+
+state IssueTracking {
+    [*] --> ViewingIssues
+    ViewingIssues --> CreatingIssue : createIssue
+    CreatingIssue --> ViewingIssues : issueCreated
+    ViewingIssues --> ClosingIssue : closeIssue
+    ClosingIssue --> ViewingIssues : issueClosed
+}
+
+state PullRequestWorkflow {
+    [*] --> ViewingPRs
+    ViewingPRs --> CreatingPR : createPullRequest
+    CreatingPR --> ReviewingPR : submitPR
+    ReviewingPR --> Merged : mergePR
+    ReviewingPR --> Closed : closePR
+}
+
+@enduml
