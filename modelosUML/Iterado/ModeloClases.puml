@@ -39,6 +39,7 @@ Fork --|> Repo
 
 ' Associations
 Owner "1" o-- "1..*" Repo : owns
+Colaborador -- Repo : Works on
 Repo "1" o-- "1..*" Branch : contains
 Repo "1" --> "0..*" Issue : has
 Repo "1" <-- "0..*" Fork : is forked into
