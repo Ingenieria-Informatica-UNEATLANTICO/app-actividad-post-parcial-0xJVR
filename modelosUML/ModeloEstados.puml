@@ -1,0 +1,28 @@
+@startuml
+
+state Repo_Creado {
+    [*] --> RepoNuevo : Owner crea repo
+    RepoNuevo --> BranchNueva : Crea rama main
+    BranchNueva --> CommitNuevo : Crea commit inicial
+    CommitNuevo --> ArchivoNuevo : Crea archivo readme.md
+    ArchivoNuevo --> [*]
+}
+
+state Colaborador_Pushea {
+    [*] --> ArchivoModificado : Colaborador modifica archivo
+    ArchivoModificado --> CommitConModificaciones : Crea commit con modificaciones
+    CommitConModificaciones --> BranchUp : Branch en nueva version
+    BranchUp --> RepoUp : Repo tiene nuevo upstream
+    RepoUp --> [*]
+}
+
+state Usuario_Crea_Fork {
+    [*] --> RepoOrigen : Se crea fork del repo
+    RepoOrigen --> Fork : El repo forkeado tiene los datos del original
+    Fork --> RepoFork : Se hacen cambios en el fork
+    RepoFork --> PullRequest : Se crea pull request al repo original
+    PullRequest --> Repo : Repo original es Upstream
+    Repo --> [*]
+}
+
+@enduml
