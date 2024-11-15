@@ -1,0 +1,67 @@
+@startuml
+
+object "mmasias : Owner" as mmasias {
+    username = "mmasias"
+    email = "manuel@masiasweb.com"
+}
+
+object "0xjvr : Colaborador" as jvr {
+    username = "0xjvr"
+    email = "114479588+0xJVR@users.noreply.github.com"
+    permissions = ["read", "write"]
+}
+
+object "repo1 : Repo" as repo1 {
+    name = "24-25-IdSw1"
+    description = "Repo de clase"
+}
+
+object "fork1 : Fork" as fork1 {
+    name = "24-25-IdSw1"
+    description = "mi fork"
+}
+
+object "masterBranch : Branch" as masterBranch {
+    name = "master"
+}
+
+object "featureBranch : Branch" as featureBranch {
+    name = "javier"
+}
+
+object "issue1 : Issue" as issue1 {
+    title = "Clase"
+    description = "Mañana no hay clase"
+    status = "Open"
+}
+
+object "pullRequest1 : PullRequest" as pullRequest1 {
+    title = "Entrega Examen"
+    description = "Entraga del examen parcial"
+    status = "Open"
+}
+
+object "commit1 : Commit" as commit1 {
+    author = mmasias
+    message = "Update readme.md"
+    date = "2024-09-09"
+}
+
+object "file1 : File" as file1 {
+    name = "README.md"
+    content = "hello world"
+}
+
+mmasias -- repo1 : owns
+repo1 -- masterBranch : contains
+masterBranch -- commit1 : includes
+commit1 -- file1 : modifies
+jvr -- fork1 : forked by
+fork1 -- repo1 : sourceRepo
+fork1 -- featureBranch : contains
+repo1 -- issue1 : has
+issue1 -- jvr : reported by
+featureBranch -- pullRequest1 : source of
+pullRequest1 -- masterBranch : targets
+
+@enduml

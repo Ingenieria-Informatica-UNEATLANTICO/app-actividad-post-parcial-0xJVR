@@ -1,0 +1,99 @@
+@startuml
+
+' Base Class: Usuario (User)
+class Usuario {
+    +username
+    +email
+}
+
+' Subclass: Colaborador (Collaborator)
+class Colaborador {
+    +permissions
+}
+
+' Subclass: Owner
+class Owner {
+    +repositories
+}
+
+' Inheritance Relationships
+Usuario <|-- Owner
+Usuario <|-- Colaborador
+
+' Class: Repo (Repository)
+class Repo {
+    +name
+    +description
+    +branches
+    +issues
+}
+
+' Class: Fork (Forked Repository)
+class Fork {
+    +sourceRepo
+    +forkedBy
+}
+
+' Inheritance Relationship
+Fork --|> Repo
+
+' Associations
+Owner "1" o-- "1..*" Repo : owns
+Repo "1" o-- "1..*" Branch : contains
+Repo "1" --> "0..*" Issue : has
+Repo "1" <-- "0..*" Fork : is forked into
+Fork "1" -- "1" Usuario : forked by
+
+' Class: Branch
+class Branch {
+    +name
+    +commits
+}
+
+' Class: Commit
+class Commit {
+    +author
+    +message
+    +date
+    +files
+}
+
+' Class: File
+class File {
+    +name
+    +data
+}
+
+' Class: Version
+class Version {
+    +versionNumber
+    +commits
+}
+
+' Class: Issue
+class Issue {
+    +title
+    +description
+    +author
+    +status
+}
+
+' Class: PullRequest
+class PullRequest {
+    +title
+    +description
+    +fromBranch
+    +toBranch
+    +status
+}
+
+' Associations
+Branch "1" o-- "0..*" Commit : contains
+Commit "1" *-- "1..*" File : modifies
+Branch "1" --> "0..*" Version : tagged as
+Version "1" o-- "1..*" Commit : includes
+Branch "1" --> "0..*" PullRequest : source of
+PullRequest "1" --> "1" Branch : targets
+Issue "1" --> "1" Usuario : reported by
+
+@enduml
